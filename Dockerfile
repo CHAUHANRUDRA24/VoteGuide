@@ -20,4 +20,5 @@ RUN echo 'server { \
 
 COPY --from=build /app/dist /usr/share/nginx/html
 EXPOSE 8080
-CMD ["nginx", "-g", "daemon off;"]
+# Use a script to inject the GEMINI_API_KEY environment variable before starting nginx
+CMD ["/bin/sh", "-c", "echo \"window.ENV = { GEMINI_API_KEY: '${GEMINI_API_KEY}' };\" > /usr/share/nginx/html/env.js && nginx -g \"daemon off;\""]

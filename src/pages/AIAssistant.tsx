@@ -122,7 +122,9 @@ export default function AIAssistant() {
 
     const callAI = async () => {
       try {
-        const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+        // @ts-ignore
+        const apiKey = (typeof window !== 'undefined' && window.ENV?.GEMINI_API_KEY) || process.env.GEMINI_API_KEY || '';
+        const ai = new GoogleGenAI({ apiKey });
         
         // Build conversation history
         const chatHistory = messages
