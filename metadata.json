@@ -1,0 +1,6 @@
+{
+  "name": "VoteGuide",
+  "description": "A progressive web application created to educate and assist Indian voters. Featuring an EVM Simulator, Civic AI Assistant powered by Google Gemini, Authentication via Firebase, and interactive civic journeys to enhance the democratic process.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
